@@ -1,0 +1,51 @@
+{
+  "name": "@shoppy/backend",
+  "version": "1.0.0",
+  "description": "Shoppy Express REST API with Prisma ORM",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:push": "prisma db push",
+    "seed": "tsx prisma/seed.ts",
+    "use:sqlite": "node scripts/switch-db.js sqlite",
+    "use:postgres": "node scripts/switch-db.js postgres",
+    "setup:sqlite": "npm run use:sqlite && npm run prisma:generate && npm run prisma:push && npm run seed"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^20.17.9",
+    "@types/supertest": "^6.0.2",
+    "prisma": "^5.22.0",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "keywords": [
+    "express",
+    "rest",
+    "prisma",
+    "postgres",
+    "jwt",
+    "ecommerce"
+  ],
+  "author": "Shoppy Contributors",
+  "license": "MIT"
+}
